@@ -1,0 +1,37 @@
+version: '3.6'
+
+services:
+  client:
+    build: .
+    container_name: linux-client
+    networks:
+      - linux-cluster
+    tty: true
+
+  instance-1:
+    build: .
+    container_name: linux-node-1
+    networks:
+      - linux-cluster
+    tty: true
+  
+  instance-2:
+    build: .
+    container_name: linux-node-2
+    networks:
+      - linux-cluster
+    tty: true
+  
+  instance-3:
+    build: .
+    container_name: linux-node-3
+    networks:
+      - linux-cluster
+    tty: true
+
+
+networks:
+  linux-cluster:
+    name: linux-cluster
+    driver: bridge
+
